@@ -1,5 +1,7 @@
 import axios from "axios";
-import { atom, selector } from "recoil";
+import { atom, atomFamily, selector } from "recoil";
+
+import { TODOS } from "./todo";
 
 export const networkAtom = atom({
     key: "networkAtom",
@@ -27,6 +29,7 @@ export const notification = atom({
         key:"networkSelector",
         get: async() => {
             const res = await axios.get("http://localhost:3000/notifications")
+            console.log(res.data);
             return res.data
         }
     })
@@ -41,7 +44,13 @@ export const totalNotificationSelector = selector({
         // const notification = get(notificationAtom);
         // return network + jobs + messaging + notification;
         const allNotifications = get(notification);
-        return allNotifications.jobs+ allNotifications.messaging + allNotifications.notifications + allNotifications.messaging
+        return allNotifications.jobs+ allNotifications.messaging + allNotifications.notifications + allNotifications.network
     }
 })
 
+export const todosAtomFamily = atomFamily({
+    key: "todosAtomFamily",
+    default: id=>{
+        return TODOS.find(x=>x.id ===id)
+    }
+})

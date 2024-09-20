@@ -5,10 +5,10 @@ import { jobsAtom, messagingAtom, networkAtom, notification, notificationAtom, t
 //Asynchronous data queries
 
 export const Appbar = () => {
-    const networkNotificationCount = useRecoilValue(networkAtom)
-    const jobAtomNotificationCount = useRecoilValue(jobsAtom);
-    const messagingNotificationCount = useRecoilValue(messagingAtom);
-    const notificationCount = useRecoilValue(notificationAtom);
+    // const networkNotificationCount = useRecoilValue(networkAtom)
+    // const jobAtomNotificationCount = useRecoilValue(jobsAtom);
+    // const messagingNotificationCount = useRecoilValue(messagingAtom);
+    // const notificationCount = useRecoilValue(notificationAtom);
     const totalNotificationsCount = useRecoilValue(totalNotificationSelector);
     const [networkCount, setNetworkCount] = useRecoilState(notification);
     

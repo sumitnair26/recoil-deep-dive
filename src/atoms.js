@@ -1,3 +1,4 @@
+import axios from "axios";
 import { atom, selector } from "recoil";
 
 export const networkAtom = atom({
@@ -22,12 +23,13 @@ export const notificationAtom = atom({
 
 export const notification = atom({
     key:"notification",
-    default:{
-        network:0,
-        jobs:0,
-        notifications:0,
-        messaging:0
-    }
+    default:selector({
+        key:"networkSelector",
+        get: async() => {
+            const res = await axios.get("http://localhost:3000/notifications")
+            return res.data
+        }
+    })
 })
 
 export const totalNotificationSelector = selector({

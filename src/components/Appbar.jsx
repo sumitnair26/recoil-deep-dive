@@ -10,15 +10,17 @@ export const Appbar = () => {
     const messagingNotificationCount = useRecoilValue(messagingAtom);
     const notificationCount = useRecoilValue(notificationAtom);
     const totalNotificationsCount = useRecoilValue(totalNotificationSelector);
-
     const [networkCount, setNetworkCount] = useRecoilState(notification);
+    
+    /*
+    
 
     useEffect(()=>{
         axios.get("http://localhost:3000/notifications")
         .then(res => {
             setNetworkCount(res.data)
         })
-    })
+    }) */
 
     // const totalNotificationsCount = useMemo(()=>{
     //  return networkNotificationCount + jobAtomNotificationCount + messagingNotificationCount + notificationCount;

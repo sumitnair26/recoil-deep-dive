@@ -1,5 +1,5 @@
 import axios from "axios";
-import { atom, atomFamily, selector } from "recoil";
+import { atom, atomFamily, selector, selectorFamily } from "recoil";
 
 import { TODOS } from "./todo";
 
@@ -53,4 +53,15 @@ export const todosAtomFamily = atomFamily({
     default: id=>{
         return TODOS.find(x=>x.id ===id)
     }
+})
+
+export const todosSecAtomFamily = atomFamily({
+    key: "todosSecAtomFamily",
+    default: selectorFamily({
+        key: "todoSelectorFamily",
+        get: (id)=>async({get})=>{
+            const res = await axios.get(`http://localhost:3000/getTodo?${id}`);
+            return res.data;
+        }
+    })
 })

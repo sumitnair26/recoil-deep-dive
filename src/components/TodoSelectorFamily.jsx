@@ -1,9 +1,9 @@
-import { useRecoilState, useRecoilValue } from "recoil"
+import { useRecoilState, useRecoilStateLoadable, useRecoilValue } from "recoil"
 import { todosSecAtomFamily } from "../atoms"
 
 export const TodoSelectorFamily = ({id}) => {
    // const getCurrentTodo = useRecoilValue(todoSelecAtomFamily(id))
-    const [getCurrentTodo, setTodo] = useRecoilState(todosSecAtomFamily(id));
+    const [getCurrentTodo, setTodo] = useRecoilStateLoadable(todosSecAtomFamily(id));
 
     return <>
         <h1>{getCurrentTodo.title}</h1>

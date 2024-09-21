@@ -13,5 +13,9 @@ export const TodoSelectorFamily = ({id}) => {
             <h1>{getCurrentTodo.contents.title}</h1>
             <h2>{getCurrentTodo.contents.description}</h2>
         </>
+    } else if(getCurrentTodo.state === "hasError") {
+        return <>
+            <h2>Error While returing data from Backend</h2>
+        </>
     }
 }

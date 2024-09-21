@@ -60,6 +60,8 @@ export const todosSecAtomFamily = atomFamily({
     default: selectorFamily({
         key: "todoSelectorFamily",
         get: (id)=>async({get})=>{
+            await new Promise(r => setTimeout(r, 5000))
+            throw new Error("Backend call failded")
             const res = await axios.get(`http://localhost:3000/getTodo?${id}`);
             return res.data;
         }

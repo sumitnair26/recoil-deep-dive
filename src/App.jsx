@@ -7,13 +7,13 @@ function App() {
   return (
     <>
       <RecoilRoot>
-        <Appbar />
+        {/* <Appbar />
         <hr />
         <Todo id={1} />
         <Todo id={2} />
         <Todo id={2} />
         <Todo id={2} />
-        <hr />
+        <hr /> */}
         <TodoSelectorFamily id={4} />
       </RecoilRoot>
     </>
